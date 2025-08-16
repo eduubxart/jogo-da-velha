@@ -1,0 +1,43 @@
+.quadrado {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    display: inline-block;
+    font-size: 48px;
+    text-align: center;
+    line-height: 100px;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+#logo {
+    width: 500px;
+    height: 200px;
+    display: Block;
+    margin: 20px auto;
+}
+.jogador, .vencedor {
+    margin: 10px auto;
+    font-size: 24px;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+    background-color: #ffffff;
+    border:  2px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+
+}
+button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-top: 20px;
+
+
+
+
+
+
+
+
+
+}
