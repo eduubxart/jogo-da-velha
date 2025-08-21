@@ -1,9 +1,13 @@
-const cells = document.querySelector('[data-cell]');
+const cells = document.querySelectorAll('[data-cell]');
 cells.forEach(cell => {
-    cell.addEventListener('click',() => {
-        cell.textContent = 'x';
     });
-});
-console.lof('JAvaScript funcionando!')
+let xTurn = true;
+    cells.forEach(cell => {
+        cell.addEventListener('click',() => {
+            const currentClass = xTurn ? 'X' : 'O';
+            cell.textContent = currentClass;
+            xTurn = !xTurn;
+        }, {once: true});
+    });
 
 
