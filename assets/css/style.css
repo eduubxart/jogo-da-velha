@@ -5,13 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #eb975fef;
-}
-h1 {
-  text-align: center;
-  color: rgb(0, 0, 0);
-  font-size: 3rem;
-  margin-bottom: 20px;
+    background-color: #e08a58;
 }
   #board {
     display: grid;
@@ -23,8 +17,8 @@ h1 {
   .cell {
     width: 100px;
     height: 100px;
-    background-color: rgb(90, 34, 2);
-    border: 2px solid #1f0d01;
+    background-color: rgb(107, 44, 7);
+    border: 2px solid #502305;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -34,21 +28,15 @@ h1 {
   }
   #logo {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: center;
+    gap: 0px;
   }
-  .palavra {
-    display: block;
-    margin: 5px 0;
-    max-width: 200px;
+  #logo img {
+    height: 150px;
+    object-fit: contain;
+    align-items: flex-start;
   }
-  #velha {
-    animation: pulsar 4s infinite;
-  }
-  @keyframes pulsar {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-  }
+  
+  
   

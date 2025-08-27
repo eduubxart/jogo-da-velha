@@ -4,28 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width"/>
     <title>Jogo da Velha</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>  
-    <div id="logo">
-      <img src="img/rostinho.jpeg" alt="Meu rosto" id="rosto">
-      <img src="img/jogo.jpeg" alt="JOGO" class="palavra">
-      <img src="img/da.jpeg" alt="DA" class="palavra">
-      <img src="img/velha.jpeg" alt="VELHA" class="palavra" id="velha">
+    <div id="logo-container">
+      <img src="./assets/img/logo jogo da velha.png" alt="logo" id="logo">
     </div>
-    <div id="board">
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
-      <div class="cell" data-cell></div>
+      <header>
+        <div class="painel-opções esconder">
+
+            <div id="painel-usurario-x">
+              <span id="painel-usuario-x-nome"></span>
+              <span class="pontos">Pontos: <strong id="painel-usuário-x-pontos">0</strong></span>
+            </div>
+
+            <div id="painel-usuario-o">
+              <span id="paineç-usuario-O-nome"></span>
+              <span class="pontos">Pontos: <strong id="painel-usuário-o-pontos">0</strong></span>
+            </div>
+
+            <div class="próximo-jogar">
+              <em><span>Proximo a jogar:</span> <strong id="próximo-jogador"></strong></em>
+            </div>
+
+        </div>       
+        <div class="opçoes-jogo">
+          <div class="header-group">
+            <label for="usario-o">Usuario O</label>
+            <input autocapitalize="off" id="usario-o" type="text">
+          </div>
+          <div class="header-group">
+            <label for="usario-x">Usuario X</label>
+            <input autocapitalize="off" id="usario-x" type="text">
+          </div>
+          <button id="btn-jogar">jogar</button>
+        </div>  
+      </header>  
+      <div id="board">
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+      <div data-cell class="cell"></div>
+  
     </div>
-    <button id="restartButton">Restart</button>
-    <p id="status"></p>
-    <script src="script.js"></script> 
+    <button id="reiniciar">reiniciar</button>  
+    <script src="./assets/js/script.js"></script>
   </body>
-</html>
+ </html>   
+
+
+    
