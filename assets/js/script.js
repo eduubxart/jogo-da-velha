@@ -1,61 +1,36 @@
-// ============================
-// SELEÇÃO DE ELEMENTOS DO DOM
-// ============================
+// ==============================
+// SELEÇÃO DE ELEMENTOS
+// ==============================
 const cells = document.querySelectorAll('[data-cell]');
 const reiniciarBtn = document.getElementById('reiniciar');
 const resultadoDiv = document.getElementById('resultado');
-const btnJogar = document.getElementById('btn-jogar');
-const usuario1Input = document.getElementById('usuario-1');
-const usuario2Input = document.getElementById('usuario-2');
-const proximoJogadorSpan = document.getElementById('proximo-jogador');
+const painel1 = document.getElementById('painel-player1');
+const painel2 = document.getElementById('painel-player2');
 
-// ============================
-// VARIÁVEIS DE CONTROLE
-// ============================
-let xTurn = true;
-let gameActive = false;
-let player1 = "";
-let player2 = "";
+let xTurn = true; // true = Player1, false = Player2
+let gameActive = true; // Player 1 começa por padrão
+
+// Combinações possíveis de vitória
 const winningCombinations = [
   [0,1,2],[3,4,5],[6,7,8],
   [0,3,6],[1,4,7],[2,5,8],
   [0,4,8],[2,4,6]
 ];
 
-// ============================
-// INÍCIO DO JOGO
-// ============================
-btnJogar.addEventListener('click', () => {
-  player1 = usuario1Input.value || "Player 1";
-  player2 = usuario2Input.value || "Player 2";
-
-  document.getElementById('nome-player1').textContent = player1;
-  document.getElementById('nome-player2').textContent = player2;
-
-  document.querySelector('.painel-opcoes').classList.remove('esconder');
-  document.querySelector('.opcoes-jogo').classList.add('esconder');
-
-  resultadoDiv.textContent = "";
-  xTurn = true;
-  gameActive = true;
-
-  cells.forEach(cell => cell.textContent = "");
-  updateProximoJogador();
-  addCellListeners();
-});
-
-// ============================
-// ADICIONAR EVENTO DE CLIQUE NAS CÉLULAS
-// ============================
-function addCellListeners() {
+// ================== FUNÇÃO RESET DO TABULEIRO ==================
+function resetBoard() {
   cells.forEach(cell => {
-    cell.addEventListener('click', handleClick, { once: true });
+    cell.textContent = "";
+    cell.replaceWith(cell.cloneNode(true));
   });
+  const newCells = document.querySelectorAll('[data-cell]');
+  newCells.forEach(cell => cell.addEventListener('click', handleClick, { once: true }));
+  gameActive = true;
+  resultadoDiv.textContent = "";
+  updatePlayerHighlight();
 }
 
-// ============================
-// MANIPULA CLIQUE NAS CÉLULAS
-// ============================
+// ================== CLICK NA CÉLULA ==================
 function handleClick(e) {
   if(!gameActive) return;
 
@@ -64,8 +39,7 @@ function handleClick(e) {
   cell.textContent = currentClass;
 
   if(checkWin(currentClass)) {
-    const winnerName = xTurn ? player1 : player2;
-    resultadoDiv.textContent = `${winnerName} venceu!`; // mostra apenas o jogador
+    resultadoDiv.textContent = xTurn ? "Player 1 venceu!" : "Player 2 venceu!";
     gameActive = false;
     return;
   }
@@ -77,48 +51,34 @@ function handleClick(e) {
   }
 
   xTurn = !xTurn;
-  updateProximoJogador();
+  updatePlayerHighlight();
 }
 
-// ============================
-// VERIFICA SE HOUVE VITÓRIA
-// ============================
+// ================== CHECAR VITÓRIA ==================
 function checkWin(currentClass) {
-  return winningCombinations.some(combination => {
-    return combination.every(index => cells[index].textContent === currentClass);
-  });
+  return winningCombinations.some(combination => 
+    combination.every(index => cells[index].textContent === currentClass)
+  );
 }
 
-// ============================
-// VERIFICA SE HOUVE EMPATE
-// ============================
+// ================== CHECAR EMPATE ==================
 function isDraw() {
   return [...cells].every(cell => cell.textContent);
 }
 
-// ============================
-// ATUALIZA PAINEL PRÓXIMO JOGADOR
-// ============================
-function updateProximoJogador() {
-  if (xTurn) {
-    proximoJogadorSpan.textContent = player1;
-    proximoJogadorSpan.classList.add('player1-turn', 'pulse');
-    proximoJogadorSpan.classList.remove('player2-turn');
+// ================== DESTAQUE DO PLAYER ==================
+function updatePlayerHighlight() {
+  if(xTurn) {
+    painel1?.classList.add('player-atual');
+    painel2?.classList.remove('player-atual');
   } else {
-    proximoJogadorSpan.textContent = player2;
-    proximoJogadorSpan.classList.add('player2-turn', 'pulse');
-    proximoJogadorSpan.classList.remove('player1-turn');
+    painel2?.classList.add('player-atual');
+    painel1?.classList.remove('player-atual');
   }
 }
 
-// ============================
-// BOTÃO REINICIAR
-// ============================
-reiniciarBtn.addEventListener('click', () => {
-  gameActive = true;
-  xTurn = true;
-  resultadoDiv.textContent = "";
-  cells.forEach(cell => cell.textContent = "");
-  updateProximoJogador();
-  addCellListeners();
-});
+// ================== BOTÃO REINICIAR ==================
+reiniciarBtn?.addEventListener('click', resetBoard);
+
+// ================== INICIALIZAÇÃO ==================
+resetBoard(); // inicia o jogo já com Player 1 ativo
