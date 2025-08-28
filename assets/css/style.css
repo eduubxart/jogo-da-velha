@@ -1,42 +1,204 @@
+/* ======================
+   BODY E FUNDO
+====================== */
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #e08a58;
+  display: flex;              /* Flexbox para organizar os elementos verticalmente */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #e08a58;  /* Cor de fundo */
+  font-family: Arial, sans-serif;
+  padding: 20px 0;
 }
-  #board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    gap: 5px;
-    margin-top: 20px;
 
-  }
-  .cell {
-    width: 100px;
-    height: 100px;
-    background-color: rgb(107, 44, 7);
-    border: 2px solid #502305;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: #fff;
-  }
-  #logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0px;
-  }
-  #logo img {
-    height: 150px;
-    object-fit: contain;
-    align-items: flex-start;
-  }
-  
-  
-  
+/* ======================
+ LOGO
+====================== */
+#logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#logo {
+  height: 150px;
+  object-fit: contain;
+}
+
+/* ======================
+ PAINEL DE PLACAR
+====================== */
+.painel-opcoes {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #502305; /* Fundo do painel */
+  color: #fff;
+}
+
+.painel-opcoes div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Próximo jogador */
+.proximo-jogar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.proximo-jogar strong {
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* cores do jogador ativo */
+.player1-turn {
+  background-color: #ffcc00;
+  color: #502305;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ffcc00;
+}
+
+.player2-turn {
+  background-color: #00ccff;
+  color: #502305;
+  font-weight: bold;
+  box-shadow: 0 0 10px #00ccff;
+}
+
+/* ==========================
+   PRÓXIMO JOGADOR ATIVO
+========================== */
+.proximo-jogar strong {
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Jogador 1 ativo */
+.player1-turn {
+  background-color: #ffcc00;
+  color: #502305;
+  font-weight: bold;
+  box-shadow: 0 0 15px #ffcc00;
+  transform: scale(1.1);
+}
+
+/* Jogador 2 ativo */
+.player2-turn {
+  background-color: #00ccff;
+  color: #502305;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00ccff;
+  transform: scale(1.1);
+}
+
+/* Animação de pulso */
+@keyframes pulse {
+0% { transform: scale(1.1); box-shadow: 0 0 5px rgba(255,255,255,0.5); }
+50% { transform: scale(1.2); box-shadow: 0 0 20px rgba(255,255,255,0.8); }
+100% { transform: scale(1.1); box-shadow: 0 0 5px rgba(255,255,255,0.5); }
+}
+
+.pulse {
+  animation: pulse 0.6s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+/* ======================
+ OPÇÕES DE JOGO (ANTES DE INICIAR)
+====================== */
+.opcoes-jogo {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.header-group input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #502305;
+}
+
+/* Botão Jogar */
+#btn-jogar {
+  padding: 8px 20px;
+  font-size: 1rem;
+  background-color: #502305;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 10px;
+}
+
+#btn-jogar:hover {
+  background-color: #704220;
+}
+
+/* ======================
+ TABULEIRO
+====================== */
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(107, 44, 7);
+  border: 2px solid #502305;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fcfcfc;
+  font-family: cursive;
+}
+
+/* ======================
+ MENSAGEM DE RESULTADO
+====================== */
+#resultado {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #502305;
+  margin-bottom: 20px;
+}
+
+/* ======================
+ BOTÃO REINICIAR
+====================== */
+#reiniciar {
+  padding: 10px 25px;
+  font-size:
+}

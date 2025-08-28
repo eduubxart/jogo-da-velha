@@ -1,61 +1,80 @@
 <!DOCTYPE html>
- <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width"/>
-    <title>Jogo da Velha</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>  
-    <div id="logo-container">
-      <img src="./assets/img/logo jogo da velha.png" alt="logo" id="logo">
-    </div>
-      <header>
-        <div class="painel-opções esconder">
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width"/>
+  <title>Jogo da Velha</title>
+  <!-- Conecta o CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body> 
 
-            <div id="painel-usurario-x">
-              <span id="painel-usuario-x-nome"></span>
-              <span class="pontos">Pontos: <strong id="painel-usuário-x-pontos">0</strong></span>
-            </div>
+  <!-- LOGO -->
+  <div id="logo-container">
+    <img src="./assets/img/logo jogo da velha.png" alt="logo" id="logo">
+  </div>
 
-            <div id="painel-usuario-o">
-              <span id="paineç-usuario-O-nome"></span>
-              <span class="pontos">Pontos: <strong id="painel-usuário-o-pontos">0</strong></span>
-            </div>
+  <header>
+    <!-- PAINEL DE PLACAR -->
+    <div class="painel-opcoes esconder">
+      <!-- Player 1 -->
+      <div id="painel-player1">
+        <span id="nome-player1"></span>
+        <span class="pontos">Pontos: <strong id="pontos-player1">0</strong></span>
+      </div>
 
-            <div class="próximo-jogar">
-              <em><span>Proximo a jogar:</span> <strong id="próximo-jogador"></strong></em>
-            </div>
+      <!-- Player 2 -->
+      <div id="painel-player2">
+        <span id="nome-player2"></span>
+        <span class="pontos">Pontos: <strong id="pontos-player2">0</strong></span>
+      </div>
 
-        </div>       
-        <div class="opçoes-jogo">
-          <div class="header-group">
-            <label for="usario-o">Usuario O</label>
-            <input autocapitalize="off" id="usario-o" type="text">
-          </div>
-          <div class="header-group">
-            <label for="usario-x">Usuario X</label>
-            <input autocapitalize="off" id="usario-x" type="text">
-          </div>
-          <button id="btn-jogar">jogar</button>
-        </div>  
-      </header>  
-      <div id="board">
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-      <div data-cell class="cell"></div>
-  
-    </div>
-    <button id="reiniciar">reiniciar</button>  
-    <script src="./assets/js/script.js"></script>
-  </body>
- </html>   
+      <!-- Próximo jogador -->
+      <div class="proximo-jogar">
+        <em><span>Próximo a jogar:</span> <strong id="proximo-jogador"></strong></em>
+      </div>
+    </div>  
 
+    <!-- OPÇÕES DE JOGO ANTES DE COMEÇAR -->
+    <div class="opcoes-jogo">
+      <!-- Input Player 1 -->
+      <div class="header-group">
+        <label for="usuario-1">Player 1</label>
+        <input autocapitalize="off" id="usuario-1" type="text">
+      </div>
 
-    
+      <!-- Input Player 2 -->
+      <div class="header-group">
+        <label for="usuario-2">Player 2</label>
+        <input autocapitalize="off" id="usuario-2" type="text">
+      </div>
+
+      <!-- Botão para iniciar o jogo -->
+      <button id="btn-jogar">Jogar</button>
+    </div>  
+  </header> 
+
+  <!-- TABULEIRO -->
+  <div id="board">
+    <!-- 9 células do tabuleiro (3x3) -->
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div>
+  </div>
+
+  <!-- MENSAGEM DE RESULTADO -->
+  <div id="resultado"></div>
+
+  <!-- BOTÃO REINICIAR -->
+  <button id="reiniciar">Reiniciar</button>  
+
+  <!-- Conecta o JS -->
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
