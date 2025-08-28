@@ -1,31 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Jogo da Velha</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8"> <!-- Define codificação de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width"> <!-- Faz a página responsiva -->
+  <title>Jogo da Velha</title> <!-- Título da página -->
+  <link rel="stylesheet" href="./assets/css/style.css"> <!-- Link para o CSS -->
 </head>
 <body>
 
   <!-- LOGO COM CONTAINER PARA BRILHO -->
   <div id="logo-container">
-    <img src="./assets/img/logo.png" alt="logo" id="logo">
-  </div>
-
-  <!-- PAINEL DE JOGADORES -->
-  <div class="painel-opcoes">
-    <div id="painel-player1" class="player-atual">
-      <strong>Player 1</strong>
-    </div>
-    <div id="painel-player2">
-      <strong>Player 2</strong>
-    </div>
+    <img src="./assets/img/logo.png" alt="logo" id="logo"> <!-- Imagem do logo -->
   </div>
 
   <!-- TABULEIRO -->
   <div id="board">
-    <div data-cell class="cell"></div>
+    <div data-cell class="cell"></div> <!-- Cada célula do tabuleiro -->
     <div data-cell class="cell"></div>
     <div data-cell class="cell"></div>
     <div data-cell class="cell"></div>
@@ -37,12 +28,12 @@
   </div>
 
   <!-- RESULTADO DO JOGO -->
-  <div id="resultado"></div>
+  <div id="resultado"></div> <!-- Mostra "X venceu!", "O venceu!" ou "Empate!" -->
 
   <!-- BOTÃO REINICIAR -->
   <button id="reiniciar">Reiniciar</button>
 
   <!-- SCRIPT JS -->
-  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script> <!-- Link para o JS -->
 </body>
 </html>
